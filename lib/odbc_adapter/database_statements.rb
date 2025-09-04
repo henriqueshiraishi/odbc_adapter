@@ -16,6 +16,11 @@ module ODBCAdapter
       end
     end
 
+    # Executes the SQL statement in the context of this connection
+    def internal_exec_query(sql, name = "SQL", binds = [], prepare: false, async: false)
+      exec_query(sql, name, binds, prepare: prepare)
+    end
+
     # Executes +sql+ statement in the context of this connection using
     # +binds+ as the bind substitutes. +name+ is logged along with
     # the executed +sql+ statement.
