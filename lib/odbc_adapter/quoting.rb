@@ -29,7 +29,7 @@ module ODBCAdapter
     # sequence, but not all ODBC drivers support them.
     def quoted_date(value)
       if value.acts_like?(:time)
-        zone_conversion_method = ActiveRecord::Base.default_timezone == :utc ? :getutc : :getlocal
+        zone_conversion_method = ActiveRecord.default_timezone == :utc ? :getutc : :getlocal
 
         value = value.send(zone_conversion_method) if value.respond_to?(zone_conversion_method)
         value.strftime('%Y-%m-%d %H:%M:%S') # Time, DateTime
