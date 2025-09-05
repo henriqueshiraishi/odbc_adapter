@@ -4,6 +4,8 @@ require 'active_record'
 require 'odbc'
 require 'odbc_utf8'
 
+require 'arel/visitors/null_odbc'
+
 require 'odbc_adapter/database_limits'
 require 'odbc_adapter/database_statements'
 require 'odbc_adapter/error'
